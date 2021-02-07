@@ -9,7 +9,10 @@ import Foundation
 import UIKit
 
 class CustomCell: UITableViewCell {
-    static let identifier: String = "cellIdentifier"
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    static let identifier: String = "CustomCell"
     override func awakeFromNib() {
         super.awakeFromNib()
     }

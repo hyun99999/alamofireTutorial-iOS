@@ -13,27 +13,29 @@ class ViewController: UIViewController {
     
     //MARK - Property
     let urlString = "https://api.androidhive.info/contacts/"
-    
     @IBOutlet weak var tableView: UITableView!
     var dataSource: [Contact] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //cell resource 가져오기
-        let myTableViewCellNib = UINib(nibName: "CustomCell", bundle: nil)
-        //셀에 가져오 resource 등록
-        self.tableView.register(myTableViewCellNib, forCellReuseIdentifier: "CustomCell")
-        self.tableView.rowHeight = UITableView.automaticDimension
         
+        registerCell()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         fetchData()
+        
     }
     
     //MARK - methods
     func registerCell() {
-        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
+        //cell resource 가져오기
+        let myTableViewCellNib = UINib(nibName: String(describing: CustomCell.self), bundle: nil)
+        //셀에 가져오 resource 등록
+        self.tableView.register(myTableViewCellNib, forCellReuseIdentifier: "CustomCell")
+        self.tableView.rowHeight = UITableView.automaticDimension
+        
+        self.tableView.register(myTableViewCellNib, forCellReuseIdentifier: CustomCell.identifier)
     }
     
     func fetchData() {
@@ -50,6 +52,7 @@ class ViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
+                    
                 } catch(let err) {
                     print("ViewController - success error \(err.localizedDescription)")
                 }
@@ -60,12 +63,19 @@ class ViewController: UIViewController {
         }
     }
 }
+//MARK - delegate,datasource methods
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier) as! CustomCell    }
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier) as! CustomCell
+        cell.nameLabel.text = dataSource[indexPath.row].name
+        cell.emailLabel.text = dataSource[indexPath.row].email
+        cell.genderLabel.text = dataSource[indexPath.row].gender
+        
+        return cell
+    }
 }
 
