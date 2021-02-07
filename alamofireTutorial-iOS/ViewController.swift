@@ -10,6 +10,7 @@ import Alamofire
 
 class ViewController: UIViewController {
     
+    
     //MARK - Property
     let urlString = "https://api.androidhive.info/contacts/"
     
@@ -25,7 +26,16 @@ class ViewController: UIViewController {
         self.tableView.register(myTableViewCellNib, forCellReuseIdentifier: "CustomCell")
         self.tableView.rowHeight = UITableView.automaticDimension
         
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        fetchData()
     }
+    
+    //MARK - methods
+    func registerCell() {
+        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
+    }
+    
     func fetchData() {
         AF.request(urlString).responseJSON { (response) in
             switch response.result {
@@ -49,5 +59,13 @@ class ViewController: UIViewController {
             
         }
     }
+}
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier) as! CustomCell    }
 }
 
