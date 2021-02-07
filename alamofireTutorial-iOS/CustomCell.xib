@@ -8,11 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="140" id="1iM-nE-RGY" customClass="CustomCell" customModule="alamofireTutorial_iOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="114" id="1iM-nE-RGY" customClass="CustomCell" customModule="alamofireTutorial_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1iM-nE-RGY" id="VuI-TI-PgV">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWp-lf-7AC">
@@ -36,6 +36,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="qJ9-TF-9ds" firstAttribute="leading" secondItem="RQW-Q8-vHp" secondAttribute="leading" id="JVT-GD-GIz"/>
+                    <constraint firstAttribute="bottom" secondItem="qJ9-TF-9ds" secondAttribute="bottom" constant="16" id="RSy-G8-a0t"/>
                     <constraint firstItem="qJ9-TF-9ds" firstAttribute="top" secondItem="RQW-Q8-vHp" secondAttribute="bottom" constant="8" id="WCd-ZT-a93"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RQW-Q8-vHp" secondAttribute="trailing" constant="16" id="aPK-xA-U0G"/>
                     <constraint firstItem="UWp-lf-7AC" firstAttribute="leading" secondItem="VuI-TI-PgV" secondAttribute="leading" constant="16" id="aeh-Zh-TCh"/>
@@ -50,7 +51,7 @@
                 <outlet property="genderLabel" destination="qJ9-TF-9ds" id="aYE-mJ-ecx"/>
                 <outlet property="nameLabel" destination="UWp-lf-7AC" id="QNM-WF-2Bc"/>
             </connections>
-            <point key="canvasLocation" x="240.57971014492756" y="77.678571428571431"/>
+            <point key="canvasLocation" x="243.47826086956525" y="49.553571428571423"/>
         </tableViewCell>
     </objects>
 </document>
